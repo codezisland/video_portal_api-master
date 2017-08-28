@@ -1,0 +1,17 @@
+<div class="video-i">
+    <h3 class="video-i-title"><a ng-href="/#!/video/{{::item._id}}" ng-bind="::item.name"></a></h3>
+    <div class="player">
+        <video class="video-i-video" id="{{item._id}}">
+            <source ng-src="{{ ::item.url }}" type="video/mp4">
+        </video>
+        <button class="player-full" ng-click="play(item)">
+            <i class="glyphicon glyphicon-play hide-running"></i>
+            <i class="glyphicon glyphicon-pause show-running"></i>
+        </button>
+    </div>
+    <div class="rating">
+        <uib-rating ng-model="item.rate" read-only="true"></uib-rating>
+        <span class="rating-o">({{ item.rate }}) - {{ item.ratings.length }} votes</span>
+    </div>
+    <div class="video-i-description" ng-bind="::item.description"></div>
+</div>

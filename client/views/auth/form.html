@@ -1,0 +1,23 @@
+<div class="auth-form-w">
+    <div class="auth-form-inner">
+        <h3 class="auth-form-title">Crossover Video Portal</h3>
+        <p>Technical Trial Objective</p>
+        <form class="auth-form" name="form" novalidate>
+            <div class="auth-form-g">
+                <label class="lb" for="username">Username</label>
+                <input required ng-model="username" id="username" name="username" class="form-control" type="text" />
+            </div>
+
+            <div class="auth-form-g">
+                <label class="lb" for="password">Password</label>
+                <input required ng-model="password" id="password" name="password"  class="form-control" type="password"/>
+            </div>
+
+            <uib-alert type="danger" ng-if="notification" close="close()">{{notification}}</uib-alert>
+
+            <div class="text-right">
+                <button ng-disabled="form.$invalid" type="submit" class="btn btn-success auth-form-btn" ng-click="send()">Login</button>
+            </div>
+        </form>
+    </div>
+</div>

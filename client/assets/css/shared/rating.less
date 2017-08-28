@@ -1,0 +1,49 @@
+.rating{
+  font-size: 24px;
+  .clearAfter;
+
+  i{
+    float: left;
+    margin-right: 5px;
+    color: @color-yellow;
+  }
+
+  .available{
+    i{
+      cursor: pointer;
+    }
+  }
+}
+
+.rating-o{
+  font-size: 0.75em;
+  float: left;
+  color: #666;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+.rating-f{
+  position: relative;
+  float: left;
+  line-height: 1;
+
+  &>.btn{
+    width: 80px;
+  }
+
+  .popover{
+    display: block;
+    width: 200px;
+    text-align: center;
+    top: 100%;
+    margin-top: 6px;
+    left: 50%;
+    margin-left: -100px;
+
+    .rating{
+      margin-bottom: 0;
+      font-size: 20px;
+    }
+  }
+}

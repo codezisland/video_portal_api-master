@@ -1,0 +1,15 @@
+<div ng-include="'views/partial/header.html'"></div>
+
+<div class="container-fluid" infinite-scroll="loadMore()" infinite-scroll-distance='1'>
+    <div class="row row-10 video-grid">
+        <div class="col-sm-4 col-md-3" ng-repeat="item in items track by item._id">
+            <video-item item="item"></video-item>
+        </div>
+    </div>
+
+    <uib-alert type="danger" ng-if="notification" close="close()">{{notification}}</uib-alert>
+
+    <div class="no-videos" ng-if="noData">
+        <p>There are no more videos...</p>
+    </div>
+</div>

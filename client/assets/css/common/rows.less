@@ -1,0 +1,13 @@
+.rows(@l){
+  margin-left: -1*@l;
+  margin-right: -1*@l;
+
+  &>div{
+    padding-left: @l;
+    padding-right: @l;
+  }
+}
+
+.row-10{
+  .rows(10px);
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Crossover Video Portal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+    <link href="assets/css/style.css" type="text/css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel='stylesheet' type='text/css'>
+</head>
+<body ng-app="videoApp">
+    <ng-view></ng-view>
+
+    <!-- jquery script, required by infinite-scroll library -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <!-- Angular scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-cookies.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-touch.min.js"></script>
+
+    <!-- App scripts -->
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/routes.js"></script>
+
+    <!-- Load Services -->
+    <script src="assets/js/services/helper.js"></script>
+    <script src="assets/js/services/auth.js"></script>
+    <script src="assets/js/services/video.js"></script>
+
+    <!-- Load Directives -->
+    <script src="assets/js/directives/onkeyenter.js"></script>
+    <script src="assets/js/directives/video.js"></script>
+
+    <!-- Load Controllers -->
+    <script src="assets/js/controllers/header.js"></script>
+    <script src="assets/js/controllers/auth/login.js"></script>
+    <script src="assets/js/controllers/video/list.js"></script>
+    <script src="assets/js/controllers/video/details.js"></script>
+
+    <!-- Angular UI -->
+    <script src="external/ui-bootstrap-tpls-1.3.3.min.js"></script>
+
+    <!-- bower components -->
+    <script src="bower_components/angular-md5/angular-md5.min.js"></script>
+    <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,42 @@
+<div ng-include="'views/partial/header.html'"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8 col-lg-9">
+            <div class="video-d">
+                <h1 class="video-d-title" ng-bind="::video.name"></h1>
+
+                <div class="player">
+                    <video id="{{::video._id}}" controls on-video-play="play()">
+                        <source ng-src="{{ ::video.url }}" type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="rating">
+                    <uib-rating ng-model="video.rate" read-only="true"></uib-rating>
+                    <span class="rating-o">({{ video.rate }}) - {{ video.ratings.length }} votes</span>
+
+                    <div class="rating-f">
+                        <a class="btn btn-xs btn-info" ng-click="showVoteForm = !showVoteForm">vote</a>
+
+                        <div class="popover bottom" ng-show="showVoteForm">
+                            <div class="arrow"></div>
+                            <div class="popover-content">
+                                <div class="rating">
+                                    <uib-rating ng-class="{'available': rate == null}" ng-model="rate"
+                                                read-only="rate"></uib-rating>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-d-description" ng-bind="::video.description"></div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-lg-3">
+            <div ng-if="item._id != video._id" ng-repeat="item in items track by item._id">
+                <video-item item="item"></video-item>
+            </div>
+        </div>
+    </div>
+</div>
