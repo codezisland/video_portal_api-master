@@ -1,27 +1,33 @@
 app.controller("VideoDetailsController", ["$scope","video", "suggestedVideos", 'videoService',
     function($scope, video, suggestedVideos, videoService){
-
-        var _video =  video.data;
-        _video["rate"] = videoService.rateAvg(_video);
+        video["rate"] = videoService.rateAvg(video);
 
         angular.extend($scope, {
             rate: null,
-            video: _video,
+            rated: false,
+            video: video,
             showVoteForm: false,
             play: function(){
                 videoService.stopAllVideos($scope.video._id);
             },
-            items: suggestedVideos.data
-        });
+            items: suggestedVideos,
+            rateVideo : function(rate){
+                if ($scope.rated)
+                    return;
 
-        // listener for rate
-        $scope.$watch('rate', function(newValue, oldValue) {
-            if (newValue != null){
-                videoService.rate($scope.video._id, newValue).then(function(response){
-                    $scope.video = response.data;
+                $scope.rated = true;
+
+                videoService.rate($scope.video._id, rate).then(function(response){
+                    $scope.video = response;
                     $scope.video.rate = videoService.rateAvg($scope.video);
 
                 }, function(reject){});
             }
+        });
+
+        // listener for rate
+        $scope.$watch('rate', function(newValue, oldValue) {
+            if (newValue != null)
+                $scope.rateVideo(newValue);
         });
 }]);

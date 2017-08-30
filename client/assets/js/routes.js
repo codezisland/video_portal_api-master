@@ -1,11 +1,7 @@
 angular.module('videoApp')
     .config(['$routeProvider', function ($routeProvider) {
 
-        $routeProvider.when('/login', {
-            templateUrl: "views/auth/form.html",
-            controller: 'AuthLoginController'
-        });
-
+       
         $routeProvider.when('/', {
             templateUrl: "views/video/index.html",
             controller: 'VideoListController',
@@ -14,6 +10,11 @@ angular.module('videoApp')
                     return videoService.list(0, videoService.pageSize);
                 }]
             }
+        });
+
+         $routeProvider.when('/login', {
+            templateUrl: "views/auth/form.html",
+            controller: 'AuthLoginController'
         });
 
         $routeProvider.when('/video/:videoId', {
@@ -29,5 +30,5 @@ angular.module('videoApp')
             }
         });
 
-        $routeProvider.otherwise({ redirectTo: '/' });
+       $routeProvider.otherwise({ redirectTo: '/' });
 }]);

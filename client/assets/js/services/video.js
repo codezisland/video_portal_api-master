@@ -13,12 +13,15 @@ angular.module('videoApp')
                 });
             },
             rateAvg: function(video){
+                if (video.ratings == null || video.ratings.length == 0)
+                    return 0;
+
                 // rating average
                 var _rate = 0;
                 for(var r in video.ratings)
                     _rate+= video.ratings[r];
 
-                return (_rate / video.ratings.length).toFixed(2);
+                return parseFloat((_rate / video.ratings.length).toFixed(2));
             },
             stopAllVideos: function(videoId){
                 var videos = document.getElementsByTagName("video");

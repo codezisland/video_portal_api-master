@@ -16,7 +16,7 @@
             <uib-alert type="danger" ng-if="notification" close="close()">{{notification}}</uib-alert>
 
             <div class="text-right">
-                <button ng-disabled="form.$invalid" type="submit" class="btn btn-success auth-form-btn" ng-click="send()">Login</button>
+                <button ng-disabled="form.$invalid" type="submit" class="btn btn-success auth-form-btn" ng-click="submitForm()">Login</button>
             </div>
         </form>
     </div>

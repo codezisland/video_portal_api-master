@@ -4,13 +4,13 @@ app.controller("AuthLoginController", ["$scope","authService","$location", funct
         password: null,
         notification: null,
 
-        send : function() {
+        submitForm : function() {
             authService.login($scope.username, $scope.password).then(
                 function(){
                     $location.path("/");
                 },
-                function(response){
-                    $scope.notification = response.error;
+                function(error){
+                    $scope.notification = error;
                 }
             );
         },

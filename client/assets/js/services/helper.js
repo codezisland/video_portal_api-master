@@ -14,17 +14,28 @@ angular.module('videoApp')
 
             $http(httpParams).then(
                 function (response) {
-                    if (response.status === 200 && response.data && response.data.status === "success") {
-                        deferred.resolve(response.data);
-                    } else {
-                        deferred.reject(response.data);
+                    if (response.data.status === "success"){
+                        // debugger;
+                        if (response.data.hasOwnProperty('data'))
+                            deferred.resolve(response.data.data);
+                        else
+                            deferred.resolve(response.data);
+
+                        return;
                     }
-                },
-                function(response){
+
+                    if (response.data.hasOwnProperty('error')) {
+                        deferred.reject(response.data.error);
+                        return;
+                     }
+
+                    deferred.reject("Something was wrong..");
+
+                }, function(response){
                     if (response && response.data)
                         deferred.reject(response.data);
                     else
-                        deferred.reject({error: "Something was wrong.."});
+                        deferred.reject("Something was wrong..");
                 }
             );
 
